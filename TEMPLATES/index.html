@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PhishGuard AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <link rel="icon"
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+<div class="container">
+
+    <img src="{{ url_for('static', filename='images/logo.png') }}"
+     class="hero-logo">
+
+<h1>PhishGuard AI</h1>
+
+<p class="subtitle">
+    AI-Powered Phishing Detection & Cyber Threat Intelligence
+</p>
+
+    <form action="/predict" method="POST">
+
+        <input
+            type="text"
+            name="url"
+            placeholder="Enter Website URL"
+            required>
+
+        <button type="submit">
+            🔍 Detect Website
+        </button>
+
+    </form>
+</div>
+
+</body>
+
+</html>

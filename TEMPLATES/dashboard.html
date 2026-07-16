@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CyberShield AI Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+<h1>🛡️ CyberShield AI Dashboard</h1>
+
+<div class="dashboard-cards">
+
+    <div class="card">
+        <h3>🛡 Total Scans</h3>
+        <h1>{{ total }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>🟢 Legitimate</h3>
+        <h1>{{ legitimate }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>🔴 Phishing</h3>
+        <h1>{{ phishing }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>🌐 URL Scans</h3>
+        <h1>{{ url_scans }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>📱 QR Scans</h3>
+        <h1>{{ qr_scans }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>📈 Avg. Confidence</h3>
+        <h1>{{ average }}%</h1>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>📊 Scan Statistics</h2>
+
+<img src="{{ url_for('static', filename='charts/pie_chart.png') }}" width="400">
+
+</div>
+
+<br>
+
+<h2>📋 Recent Scan History</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse:collapse;">
+
+<tr style="background:#0b5ed7;color:white;">
+    <th>Date & Time</th>
+    <th>Website</th>
+    <th>Prediction</th>
+    <th>Confidence</th>
+    <th>Scan Type</th>
+</tr>
+
+{% for row in recent_scans %}
+
+<tr>
+    <td>{{ row.get('Date & Time') }}</td>
+    <td>{{ row.get('Website') }}</td>
+    <td>{{ row.get('Prediction') }}</td>
+    <td>{{ row.get('Confidence') }}</td>
+    <td>{{ row.get('Scan Type') }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/">
+    <button>🏠 Back to Home</button>
+</a>
+
+</div>
+
+</body>
+
+</html>

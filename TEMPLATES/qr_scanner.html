@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>QR Scanner</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}">
+
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+<h1>📷 QR Code Scanner</h1>
+
+<form action="/scan_qr" method="POST"
+enctype="multipart/form-data">
+
+<input type="file"
+name="qr_image"
+accept="image/*"
+required>
+
+<button type="submit">
+
+📷 Scan QR Code
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

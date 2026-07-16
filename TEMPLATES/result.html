@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Prediction Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}">
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+<div class="container">
+
+<h1>🛡️ Scan Result</h1>
+
+<div class="result {{ color }}">
+
+<h2>{{ prediction }}</h2>
+
+<p><strong>Website:</strong></p>
+
+<p>{{ website }}</p>
+
+<p><strong>Confidence:</strong></p>
+
+<h2>{{ confidence }}%</h2>
+
+<p><strong>Scanned At:</strong></p>
+
+<p>{{ scan_time }}</p>
+
+</div>
+
+<br>
+<br><br>
+
+<a href="/download_report">
+    <button>📄 Download PDF Report</button>
+</a>
+
+<br><br>
+
+<a href="/">
+
+<button>
+
+🔍 Scan Another Website
+
+</button>
+
+</a>
+
+</div>
+
+<footer>
+
+<p>Phishing Detection System Using Machine Learning</p>
+
+</footer>
+
+</body>
+
+</html>
+<p class="note">
+This prediction is based on URL characteristics and machine learning analysis.
+</p>
