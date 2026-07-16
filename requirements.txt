@@ -8,3 +8,4 @@ requests
 tldextract
 Pillow
 opencv-python-headless
+matplotlib
