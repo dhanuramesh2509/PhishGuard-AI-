@@ -26,9 +26,11 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib import colors
 from reportlab.lib.units import inch
 
-app = Flask(__name__)
-UPLOAD_FOLDER = "static/uploads"
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app = Flask(
+    __name__,
+    template_folder="templates",
+    static_folder="static"
+)
 
 # Load trained model
 model = joblib.load("MODEL/url_model.pkl")
